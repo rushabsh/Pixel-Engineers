@@ -1,0 +1,128 @@
+/* =========================================================================
+   DYNAMIC CTA SECTION ("HAVE AN IDEA? LET'S BRING IT TO LIFE.")
+   Reusable across About, Homepage, Services, and Work pages
+   ========================================================================= */
+
+.cta-section-fullwidth {
+  width: 100%;
+  max-width: 100%;
+  background: #eaedef;
+  min-height: var(--about-showcase-section-height, 720px);
+  padding: 80px 64px 80px 64px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  color: #0e1217;
+  overflow: hidden;
+}
+
+@media (max-width: 960px) {
+  .cta-section-fullwidth {
+    min-height: auto;
+    padding: 60px 24px 70px 24px;
+  }
+}
+
+/* Background Video inside section */
+.cta-video-backdrop-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 30%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 30%, black 100%);
+}
+
+@media (max-width: 768px) {
+  .cta-video-backdrop-wrapper {
+    width: 100%;
+    opacity: 0.35;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 20%, black 100%);
+  }
+}
+
+.cta-backdrop-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.85;
+}
+
+.cta-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.cta-index-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.cta-display-heading {
+  font-family: 'Helvetica Now Var', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(32px, 3.4vw, 48px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #0e1217;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cta-heading-muted {
+  color: #828894;
+  font-weight: 800;
+}
+
+.cta-description {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #525866;
+  max-width: 480px;
+  margin: 24px 0 36px 0;
+}
+
+.cta-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.cta-trust-item {
+  color: #334155;
+  font-weight: 600;
+}
+
+.cta-trust-dot {
+  color: #cbd5e1;
+}
