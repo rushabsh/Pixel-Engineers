@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -2061,5 +2062,308 @@ body {
 @keyframes dynamic-btn-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   EXPERIENCE / NUMBERS SECTION
+========================================= */
+
+.home-numbers-section {
+  padding: 160px 0;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.home-numbers-header {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  border-bottom: 1px solid currentColor;
+  border-bottom-color: color-mix(
+    in srgb,
+    currentColor 15%,
+    transparent
+  );
+}
+
+.home-numbers-heading-wrap {
+  max-width: 850px;
+}
+
+.home-numbers-heading-wrap .home-display-heading {
+  margin: 0;
+}
+
+.home-numbers-intro {
+  max-width: 470px;
+  margin: 35px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.55;
+}
+
+
+/* =========================================
+   NUMBERS GRID
+========================================= */
+
+.home-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* =========================================
+   NUMBER ITEM
+========================================= */
+
+.home-number-item {
+  position: relative;
+  min-height: 310px;
+  padding: 35px 35px 30px;
+
+  border-right: 1px solid
+    color-mix(in srgb, currentColor 15%, transparent);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-number-item:first-child {
+  padding-left: 0;
+}
+
+.home-number-item:last-child {
+  border-right: none;
+}
+
+
+/* =========================================
+   TOP ROW
+========================================= */
+
+.home-number-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+.home-number-index {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+}
+
+.home-number-arrow {
+  font-size: 18px;
+  opacity: 0.35;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+
+/* =========================================
+   BIG NUMBER
+========================================= */
+
+.home-number-item .metric-big-number {
+  margin: 0;
+
+  font-size: clamp(58px, 6vw, 92px);
+  line-height: 0.85;
+  letter-spacing: -0.07em;
+
+  transition: transform 0.45s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.home-number-bottom {
+  position: absolute;
+  left: 35px;
+  bottom: 30px;
+}
+
+.home-number-item:first-child .home-number-bottom {
+  left: 0;
+}
+
+.home-number-item .metric-caption {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.55;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.home-number-item:hover {
+  transform: translateY(-8px);
+}
+
+.home-number-item:hover .metric-big-number {
+  transform: translateX(5px);
+}
+
+.home-number-item:hover .home-number-arrow {
+  opacity: 1;
+  transform: translate(4px, -4px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .home-numbers-section {
+    padding: 120px 0;
+  }
+
+  .home-numbers-header {
+    grid-template-columns: 120px 1fr;
+    gap: 50px;
+    padding-bottom: 75px;
+  }
+
+  .home-number-item {
+    min-height: 260px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .home-number-item:first-child {
+    padding-left: 0;
+  }
+
+  .home-number-item .metric-big-number {
+    font-size: clamp(45px, 6vw, 70px);
+  }
+
+  .home-number-top {
+    margin-bottom: 55px;
+  }
+
+  .home-number-bottom {
+    left: 25px;
+  }
+
+  .home-number-item:first-child .home-number-bottom {
+    left: 0;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .home-numbers-section {
+    padding: 90px 0;
+  }
+
+  .home-numbers-header {
+    display: block;
+    padding-bottom: 60px;
+  }
+
+  .home-numbers-header .home-index-tag {
+    margin-bottom: 30px;
+  }
+
+  .home-numbers-intro {
+    margin-top: 25px;
+  }
+
+  .home-numbers-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-number-item,
+  .home-number-item:first-child {
+    min-height: 220px;
+    padding: 25px 20px;
+    border-right: 1px solid
+      color-mix(in srgb, currentColor 15%, transparent);
+    border-bottom: 1px solid
+      color-mix(in srgb, currentColor 15%, transparent);
+  }
+
+  .home-number-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .home-number-item:nth-child(3),
+  .home-number-item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .home-number-top {
+    margin-bottom: 45px;
+  }
+
+  .home-number-item .metric-big-number {
+    font-size: 48px;
+  }
+
+  .home-number-bottom,
+  .home-number-item:first-child .home-number-bottom {
+    left: 20px;
+    bottom: 25px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+  .home-numbers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-number-item,
+  .home-number-item:first-child,
+  .home-number-item:nth-child(2n) {
+    min-height: 190px;
+    padding: 25px 0;
+    border-right: none;
+    border-bottom: 1px solid
+      color-mix(in srgb, currentColor 15%, transparent);
+  }
+
+  .home-number-item:last-child {
+    border-bottom: none;
+  }
+
+  .home-number-bottom,
+  .home-number-item:first-child .home-number-bottom {
+    left: 0;
+    bottom: 25px;
+  }
+
+  .home-number-item .metric-big-number {
+    font-size: 52px;
   }
 }

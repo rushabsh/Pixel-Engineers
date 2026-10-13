@@ -3,6 +3,7 @@
 import React from 'react';
 import Button from '../../components/Button';
 import FadeUp from '../../components/FadeUp';
+import CtaSection from '../../components/CtaSection';
 import './services.css';
 
 // Process Steps Data (Section 06)
@@ -725,51 +726,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 8. 08 / 08 READY TO GROW YOUR BUSINESS? (WITH VIDEO) */}
-      <section className="srv-showcase-section srv-theme-light srv-cta-section" id="ready-to-grow">
-        {/* Background Video inside section on the right */}
-        <div className="srv-cta-video-wrapper">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4"
-            className="srv-cta-video-element"
-          />
-        </div>
-
-        <div className="srv-showcase-container srv-cta-layout">
-          <div className="srv-cta-content-col">
-            <div className="srv-index-tag">008 / 008</div>
-            <h2 className="srv-display-heading">
-              Ready to Grow <br />
-              <span className="srv-heading-muted">Your Business?</span>
-            </h2>
-            <p className="srv-lead-desc">
-              Let's discuss how our tailored services can help you automate workflows, scale customer acquisition, and build industry-leading digital products.
-            </p>
-
-            <div className="srv-cta-actions-row">
-              <Button href="/contact" size="lg">
-                Start a Conversation
-              </Button>
-              <Button href="/services" variant="secondary" size="lg">
-                Explore Our Services
-              </Button>
-            </div>
-
-            {/* Trust highlights under buttons */}
-            <div className="srv-cta-trust-strip">
-              <span className="srv-cta-trust-item">✓ Fast 24-Hour Response</span>
-              <span className="srv-cta-trust-dot">•</span>
-              <span className="srv-cta-trust-item">✓ NDA Protected</span>
-              <span className="srv-cta-trust-dot">•</span>
-              <span className="srv-cta-trust-item">✓ Free Discovery Session</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 8. 08 / 08 HAVE AN IDEA? LET'S BRING IT TO LIFE. */}
+      <CtaSection tag="008 / 008" />
     </div>
   );
 }

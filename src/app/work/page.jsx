@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Button from '../../components/Button';
 import FadeUp from '../../components/FadeUp';
+import CtaSection from '../../components/CtaSection';
 import './work.css';
 
 // Featured Projects Data (matching the user-provided reference image)
@@ -552,52 +553,9 @@ export default function WorkPage() {
         </section>
 
         {/* =========================================================================
-            3. READY TO GROW YOUR BUSINESS? SECTION (SAME AS SERVICES PAGE)
+            3. HAVE AN IDEA? LET'S BRING IT TO LIFE.
             ========================================================================= */}
-        <section className="work-showcase-section work-theme-light work-cta-section" id="ready-to-grow">
-          {/* Background Video inside section on the right */}
-          <div className="work-cta-video-wrapper">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4"
-              className="work-cta-video-element"
-            />
-          </div>
-
-          <div className="work-showcase-container work-cta-layout">
-            <div className="work-cta-content-col">
-              <div className="work-index-tag">003 / 003</div>
-              <h2 className="work-display-heading">
-                Ready to Grow <br />
-                <span className="work-heading-muted">Your Business?</span>
-              </h2>
-              <p className="work-lead-desc">
-                Let's discuss how our tailored services can help you automate workflows, scale customer acquisition, and build industry-leading digital products.
-              </p>
-
-              <div className="work-cta-actions-row">
-                <Button href="/contact" size="lg">
-                  Start a Conversation
-                </Button>
-                <Button href="/services" variant="secondary" size="lg">
-                  Explore Our Services
-                </Button>
-              </div>
-
-              {/* Trust highlights under buttons */}
-              <div className="work-cta-trust-strip">
-                <span className="work-cta-trust-item">✓ Fast 24-Hour Response</span>
-                <span className="work-cta-trust-dot">•</span>
-                <span className="work-cta-trust-item">✓ NDA Protected</span>
-                <span className="work-cta-trust-dot">•</span>
-                <span className="work-cta-trust-item">✓ Free Discovery Session</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CtaSection tag="003 / 003" />
       </div>
     </div>
   );
