@@ -7,23 +7,38 @@
   width: 100%;
   max-width: 100%;
   background: #eaedef;
-  min-height: var(--about-showcase-section-height, 720px);
-  padding: 80px 64px 80px 64px;
+  min-height: auto;
+  padding: 80px 64px;
   box-sizing: border-box;
   position: relative;
   z-index: 2;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #0e1217;
   overflow: hidden;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .cta-section-fullwidth {
-    min-height: auto;
-    padding: 60px 24px 70px 24px;
+    padding: 80px 40px;
   }
+}
+
+@media (max-width: 640px) {
+  .cta-section-fullwidth {
+    padding: 64px 24px;
+  }
+}
+
+.cta-outer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
 /* Background Video inside section */
@@ -78,7 +93,7 @@
 
 .cta-display-heading {
   font-family: 'Helvetica Now Var', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(32px, 3.4vw, 48px);
+  font-size: clamp(30px, 3.1vw, 42px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -93,8 +108,9 @@
 }
 
 .cta-description {
-  font-size: 15px;
-  line-height: 1.65;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.62;
   color: #525866;
   max-width: 480px;
   margin: 24px 0 36px 0;
