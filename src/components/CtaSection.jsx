@@ -51,34 +51,36 @@ export default function CtaSection({
         </div>
       )}
 
-      <div className="cta-content-container">
-        {tag && <div className="cta-index-tag">{tag}</div>}
-        <h2 className="cta-display-heading">{renderedHeading}</h2>
-        {description && <p className="cta-description">{description}</p>}
+      <div className="cta-outer-container">
+        <div className="cta-content-container">
+          {tag && <div className="cta-index-tag">{tag}</div>}
+          <h2 className="cta-display-heading">{renderedHeading}</h2>
+          {description && <p className="cta-description">{description}</p>}
 
-        <div className="cta-buttons-row">
-          {primaryBtnText && (
-            <Button href={primaryBtnHref} size="lg">
-              {primaryBtnText}
-            </Button>
-          )}
-          {secondaryBtnText && (
-            <Button href={secondaryBtnHref} variant="secondary" size="lg">
-              {secondaryBtnText}
-            </Button>
+          <div className="cta-buttons-row">
+            {primaryBtnText && (
+              <Button href={primaryBtnHref} size="lg">
+                {primaryBtnText}
+              </Button>
+            )}
+            {secondaryBtnText && (
+              <Button href={secondaryBtnHref} variant="secondary" size="lg">
+                {secondaryBtnText}
+              </Button>
+            )}
+          </div>
+
+          {showTrustBadges && trustBadges && trustBadges.length > 0 && (
+            <div className="cta-trust-strip">
+              {trustBadges.map((badge, idx) => (
+                <React.Fragment key={idx}>
+                  <span className="cta-trust-item">{badge}</span>
+                  {idx < trustBadges.length - 1 && <span className="cta-trust-dot">•</span>}
+                </React.Fragment>
+              ))}
+            </div>
           )}
         </div>
-
-        {showTrustBadges && trustBadges && trustBadges.length > 0 && (
-          <div className="cta-trust-strip">
-            {trustBadges.map((badge, idx) => (
-              <React.Fragment key={idx}>
-                <span className="cta-trust-item">{badge}</span>
-                {idx < trustBadges.length - 1 && <span className="cta-trust-dot">•</span>}
-              </React.Fragment>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );

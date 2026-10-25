@@ -85,7 +85,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   color: #64748b;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
@@ -108,7 +108,7 @@
 
 .contact-display-heading {
   font-family: 'Helvetica Now Var', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(30px, 3.2vw, 48px);
+  font-size: clamp(30px, 3.1vw, 42px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -128,7 +128,7 @@
 
 .contact-lead-desc {
   font-family: 'Inter Tight', sans-serif;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.62;
   color: #475569;
   margin: 0;

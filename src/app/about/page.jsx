@@ -660,9 +660,7 @@ export default function AboutPage() {
                 </div>
 
                 <h2 className="transform-heading">
-                  MAKING
-                  <br />
-                  DIGITAL
+                  MAKING DIGITAL
                   <br />
                   <span>TRANSFORMATION</span>
                   <br />
@@ -801,160 +799,208 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. WE DON'T JUST DELIVER PROJECTS. WE BUILD PARTNERSHIPS. */}
-      <section className="partners-section-fullwidth" id="why-choose-us">
+      <section className="partners-section" id="why-choose-us">
         <div className="partners-container">
-          <div className="partners-left-col">
-            <div className="partners-index-tag">006 / 009</div>
-            <h2 className="partners-display-heading">
-              WE DON'T JUST <br />
-              DELIVER PROJECTS. <br />
-              <span className="partners-heading-muted">
-                WE BUILD PARTNERSHIPS.
+
+          {/* Top Meta */}
+          <div className="partners-meta">
+            <span>006 / 009</span>
+            <span>WHY CHOOSE US</span>
+          </div>
+
+          {/* Main Content */}
+          <div className="partners-main">
+
+            {/* Left Content */}
+            <div className="partners-intro">
+
+              <span className="partners-eyebrow">
+                BUILT FOR THE LONG RUN
               </span>
-            </h2>
-            <p className="partners-description">
-              From startups to global enterprises, we work closely with our
-              clients to create solutions that last.
-            </p>
-            <Button href="/work" size="md">
-              Our Case Studies
-            </Button>
-          </div>
 
-          <div className="partners-right-col">
-            <div className="partners-orbit-diagram">
-              <div className="partners-orbit-ring" />
+              <h2 className="partners-heading">
+                WE DON'T JUST
+                <br />
+                DELIVER
+                <br />
+                <span>PROJECTS.</span>
+                <br />
+                WE BUILD
+                <br />
+                <span>PARTNERSHIPS.</span>
+              </h2>
 
-              <div className="partners-center-hub">
-                <span className="partners-center-letter">C</span>
+              <div className="partners-description-wrap">
+                <span className="partners-description-line"></span>
+
+                <p className="partners-description">
+                  From startups to global enterprises, we work closely
+                  with our clients to create solutions that last.
+                </p>
+
+                <Button href="/work" size="md">
+                  Our Case Studies
+                </Button>
               </div>
 
-              {/* Top: Business Understanding */}
-              <div className="partners-node node-top">
-                <div className="partners-node-label label-top">
-                  <span className="node-title">Business Understanding</span>
-                  <span className="node-desc">Deep industry research</span>
-                </div>
-                <div className="partners-node-badge">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0e1217"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Left: Tailored Solutions */}
-              <div className="partners-node node-left">
-                <div className="partners-node-label label-left">
-                  <span className="node-title">Tailored Solutions</span>
-                  <span className="node-desc">Built for your unique needs</span>
-                </div>
-                <div className="partners-node-badge">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0e1217"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <polyline points="9 12 11 14 15 10" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Top-Right: Proven Results */}
-              <div className="partners-node node-top-right">
-                <div className="partners-node-label label-right">
-                  <span className="node-title">Proven Results</span>
-                  <span className="node-desc">Trusted by global clients</span>
-                </div>
-                <div className="partners-node-badge">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0e1217"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Bottom-Left: Modern Approach */}
-              <div className="partners-node node-bottom-left">
-                <div className="partners-node-label label-left">
-                  <span className="node-title">Modern Approach</span>
-                  <span className="node-desc">
-                    Combines strategy, design &amp; technology.
-                  </span>
-                </div>
-                <div className="partners-node-badge">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0e1217"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Bottom-Right: Long-Term Thinking */}
-              <div className="partners-node node-bottom-right">
-                <div className="partners-node-label label-right">
-                  <span className="node-title">Long-Term Thinking</span>
-                  <span className="node-desc">
-                    Solutions that scale with you
-                  </span>
-                </div>
-                <div className="partners-node-badge">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0e1217"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-              </div>
             </div>
+
+
+            {/* Right Partnership System */}
+            <div className="partners-system">
+
+              {/* Connecting Lines */}
+              <div className="partners-system-line line-1"></div>
+              <div className="partners-system-line line-2"></div>
+              <div className="partners-system-line line-3"></div>
+              <div className="partners-system-line line-4"></div>
+              <div className="partners-system-line line-5"></div>
+
+              {/* Center */}
+              <div className="partners-core">
+                <span className="partners-core-small">
+                  OUR
+                </span>
+
+                <span className="partners-core-title">
+                  PARTNER
+                </span>
+
+                <span className="partners-core-arrow">
+                  ↗
+                </span>
+              </div>
+
+
+              {/* Business Understanding */}
+              <div className="partner-principle principle-1">
+                <span className="principle-number">01</span>
+
+                <div>
+                  <span className="principle-label">
+                    UNDERSTAND
+                  </span>
+
+                  <h3>
+                    Business Understanding
+                  </h3>
+
+                  <p>
+                    Deep industry research
+                    before we build.
+                  </p>
+                </div>
+              </div>
+
+
+              {/* Tailored Solutions */}
+              <div className="partner-principle principle-2">
+                <span className="principle-number">02</span>
+
+                <div>
+                  <span className="principle-label">
+                    CREATE
+                  </span>
+
+                  <h3>
+                    Tailored Solutions
+                  </h3>
+
+                  <p>
+                    Built around your
+                    unique needs.
+                  </p>
+                </div>
+              </div>
+
+
+              {/* Proven Results */}
+              <div className="partner-principle principle-3">
+                <span className="principle-number">03</span>
+
+                <div>
+                  <span className="principle-label">
+                    PROVE
+                  </span>
+
+                  <h3>
+                    Proven Results
+                  </h3>
+
+                  <p>
+                    Focused on measurable
+                    business outcomes.
+                  </p>
+                </div>
+              </div>
+
+
+              {/* Modern Approach */}
+              <div className="partner-principle principle-4">
+                <span className="principle-number">04</span>
+
+                <div>
+                  <span className="principle-label">
+                    EVOLVE
+                  </span>
+
+                  <h3>
+                    Modern Approach
+                  </h3>
+
+                  <p>
+                    Strategy, design and
+                    technology working together.
+                  </p>
+                </div>
+              </div>
+
+
+              {/* Long Term */}
+              <div className="partner-principle principle-5">
+                <span className="principle-number">05</span>
+
+                <div>
+                  <span className="principle-label">
+                    GROW
+                  </span>
+
+                  <h3>
+                    Long-Term Thinking
+                  </h3>
+
+                  <p>
+                    Solutions that scale
+                    with your business.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
+
+
+          {/* Bottom Statement */}
+          <div className="partners-footer">
+
+            <span className="partners-footer-label">
+              NOT A VENDOR
+            </span>
+
+            <div className="partners-footer-line"></div>
+
+            <p>
+              Your goals become
+              <span> our goals.</span>
+            </p>
+
+            <span className="partners-footer-arrow">
+              ↗
+            </span>
+
+          </div>
+
         </div>
       </section>
 
@@ -969,69 +1015,123 @@ export default function AboutPage() {
         </div>
 
         <div className="impact-container">
-          <div className="impact-left-col">
+
+          {/* SECTION HEADER */}
+          <div className="impact-section-header">
             <div className="impact-index-tag">007 / 009</div>
-            <h2 className="impact-display-heading">
-              FROM IDEAS <br />
-              TO DIGITAL IMPACT <br />
-              <span className="impact-heading-muted">TOGETHER.</span>
-            </h2>
-            <p className="impact-description">
-              We turn ambitious ideas into measurable outcomes with the power of
-              AI and automation.
-            </p>
+
+            <div className="impact-header-line"></div>
           </div>
 
-          <div className="impact-right-col">
-            <div className="impact-steps-track">
-              {/* Step 1 */}
-              <div className="impact-step-card">
-                <div className="impact-step-top">
-                  <span className="impact-step-badge">01</span>
-                  <div className="impact-step-connector" />
-                </div>
-                <h3 className="impact-step-title">Understand</h3>
-                <p className="impact-step-desc">
-                  We learn about your business, goals and challenges.
-                </p>
+          {/* HERO AREA */}
+          <div className="impact-intro">
+
+            <div className="impact-intro-heading">
+              <h2 className="impact-display-heading">
+                FROM IDEAS <br />
+                TO DIGITAL IMPACT <br />
+                <span className="impact-heading-muted">TOGETHER.</span>
+              </h2>
+            </div>
+
+            <div className="impact-intro-description">
+              <div className="impact-description-marker"></div>
+
+              <p className="impact-description">
+                We turn ambitious ideas into measurable outcomes with the power of
+                AI and automation.
+              </p>
+            </div>
+
+          </div>
+
+          {/* PROCESS */}
+          <div className="impact-process">
+
+            {/* PROCESS HEADER */}
+            <div className="impact-process-header">
+              <span>PROCESS</span>
+              <span>01 — 04</span>
+            </div>
+
+            {/* TIMELINE */}
+            <div className="impact-timeline">
+
+              <div className="impact-timeline-line">
+                <span></span>
               </div>
 
-              {/* Step 2 */}
+              {/* STEP 1 */}
               <div className="impact-step-card">
-                <div className="impact-step-top">
-                  <span className="impact-step-badge">02</span>
-                  <div className="impact-step-connector" />
+                <div className="impact-step-number">
+                  01
                 </div>
-                <h3 className="impact-step-title">Think</h3>
-                <p className="impact-step-desc">
-                  We explore ideas and design the right approach.
-                </p>
+
+                <div className="impact-step-content">
+                  <h3 className="impact-step-title">
+                    Understand
+                  </h3>
+
+                  <p className="impact-step-desc">
+                    We learn about your business, goals and challenges.
+                  </p>
+                </div>
               </div>
 
-              {/* Step 3 */}
+              {/* STEP 2 */}
               <div className="impact-step-card">
-                <div className="impact-step-top">
-                  <span className="impact-step-badge">03</span>
-                  <div className="impact-step-connector" />
+                <div className="impact-step-number">
+                  02
                 </div>
-                <h3 className="impact-step-title">Create</h3>
-                <p className="impact-step-desc">
-                  We build, integrate and test solutions.
-                </p>
+
+                <div className="impact-step-content">
+                  <h3 className="impact-step-title">
+                    Think
+                  </h3>
+
+                  <p className="impact-step-desc">
+                    We explore ideas and design the right approach.
+                  </p>
+                </div>
               </div>
 
-              {/* Step 4 */}
+              {/* STEP 3 */}
               <div className="impact-step-card">
-                <div className="impact-step-top">
-                  <span className="impact-step-badge">04</span>
+                <div className="impact-step-number">
+                  03
                 </div>
-                <h3 className="impact-step-title">Deliver</h3>
-                <p className="impact-step-desc">
-                  We launch and support for long-term success.
-                </p>
+
+                <div className="impact-step-content">
+                  <h3 className="impact-step-title">
+                    Create
+                  </h3>
+
+                  <p className="impact-step-desc">
+                    We build, integrate and test solutions.
+                  </p>
+                </div>
               </div>
+
+              {/* STEP 4 */}
+              <div className="impact-step-card">
+                <div className="impact-step-number">
+                  04
+                </div>
+
+                <div className="impact-step-content">
+                  <h3 className="impact-step-title">
+                    Deliver
+                  </h3>
+
+                  <p className="impact-step-desc">
+                    We launch and support for long-term success.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
+
         </div>
       </section>
 
