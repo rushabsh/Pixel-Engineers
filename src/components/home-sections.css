@@ -12,7 +12,7 @@
    ========================================================================= */
 
 .home-sections-root {
-  @apply relative z-30 bg-[#eaedef] text-[#0e1217] w-full overflow-x-hidden shadow-[0_-30px_60px_rgba(0,_0,_0,_0.15)];
+  @apply relative z-30 bg-[#eaedef] text-[#0e1217] w-full overflow-x-clip shadow-[0_-30px_60px_rgba(0,_0,_0,_0.15)];
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -49,13 +49,7 @@
   @apply inline-flex items-center gap-2.5 font-mono text-[13px] font-semibold tracking-[0.14em] text-slate-500 mb-4 md:mb-[18px] uppercase;
 }
 
-.home-tag-orange-badge {
-  @apply inline-flex items-center justify-center py-[3px] px-2 bg-[#ea580c]/15 border border-[#ea580c]/40 rounded-full;
-}
 
-.home-tag-dot {
-  @apply w-1.5 h-1.5 rounded-full bg-[#ea580c];
-}
 
 /* Headings */
 .home-display-heading {
@@ -69,10 +63,7 @@
   margin: 0;
 }
 
-.home-highlight-orange {
-  color: #ea580c;
-  font-weight: 800;
-}
+
 
 .home-heading-muted,
 .srv-heading-muted {
@@ -88,15 +79,7 @@
   margin: 0;
 }
 
-/* Circle Arrow Button */
-.home-circle-arrow-btn {
-  @apply w-11 h-11 rounded-full bg-[#dfe4e8] border border-black/8 inline-flex items-center justify-center text-[#0e1217] no-underline shrink-0 transition-all duration-200 ease-out hover:bg-[#0e1217] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,_0,_0,_0.15)];
-}
 
-/* Pill Action Button */
-.home-pill-action-btn {
-  @apply inline-flex items-center gap-2 bg-transparent text-[#0e1217] py-2.5 px-[22px] rounded-full border border-black/20 text-[13px] font-bold no-underline whitespace-nowrap transition-all duration-200 ease-out hover:bg-[#0e1217] hover:text-white hover:border-[#0e1217] hover:-translate-y-0.5;
-}
 
 /* Navigation Slider Arrows */
 .home-slider-nav-arrows {
@@ -135,50 +118,7 @@
   @apply text-base font-bold tracking-[-0.01em];
 }
 
-/* =========================================================================
-   1. OUR SERVICES (4 COLUMNS WITH 3D .AVIF ARTWORK)
-   ========================================================================= */
-.home-services-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full;
-}
 
-.home-service-card {
-  @apply bg-white border border-black/8 rounded-[20px] p-7 md:p-9 flex flex-col items-center text-center shadow-[0_10px_28px_rgba(0,_0,_0,_0.03)] transition-all duration-300 relative;
-}
-
-.home-service-card:hover {
-  @apply -translate-y-1.5 border-[#ea580c]/35 shadow-[0_20px_40px_rgba(0,_0,_0,_0.08)];
-}
-
-.service-card-art-box {
-  @apply w-[130px] h-[130px] flex items-center justify-center mb-6;
-}
-
-.service-card-art-img {
-  @apply max-w-full max-h-full object-contain drop-shadow-[0_12px_20px_rgba(0,_0,_0,_0.09)] transition-transform duration-400 ease-out;
-}
-
-.home-service-card:hover .service-card-art-img {
-  @apply scale-110 rotate-4;
-}
-
-.service-card-title {
-  font-family: 'Helvetica Now Var', 'Inter Tight', sans-serif;
-  @apply text-[19px] font-bold text-[#0e1217] m-0 mb-3 leading-[1.25];
-}
-
-.service-card-desc {
-  font-family: 'Inter Tight', sans-serif;
-  @apply text-sm leading-[1.65] text-[#525866] m-0 mb-7 grow;
-}
-
-.service-card-bottom-btn {
-  @apply w-9 h-9 rounded-full bg-slate-100 border border-black/8 inline-flex items-center justify-center text-[#0e1217] no-underline transition-all duration-200 ease-out;
-}
-
-.home-service-card:hover .service-card-bottom-btn {
-  @apply bg-[#ea580c] text-white scale-110;
-}
 
 /* =========================================================================
    2. FEATURED WORK (DARK SHOWCASE CARD WITH LAPTOP)
@@ -802,56 +742,12 @@
   }
 }
 
-/* =========================================================================
-   4. INDUSTRIES WE SERVE
-   ========================================================================= */
-.home-industries-grid {
-  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 w-full;
-}
 
-.home-industry-item {
-  @apply bg-white border border-black/8 rounded-[18px] p-6 sm:py-7 sm:px-4 flex flex-col items-center text-center gap-3.5 shadow-[0_8px_20px_rgba(0,_0,_0,_0.03)] transition-all duration-300 ease-out cursor-pointer;
-}
-
-.home-industry-item:hover {
-  @apply -translate-y-1.5 border-[#ea580c] shadow-[0_14px_30px_rgba(234,_88,_12,_0.12)];
-}
-
-.industry-icon-box {
-  @apply w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-[#0e1217] transition-all duration-300 ease-out;
-}
-
-.home-industry-item:hover .industry-icon-box {
-  @apply bg-[#ea580c] text-white;
-}
-
-.industry-label {
-  font-family: 'Inter Tight', sans-serif;
-  @apply text-[13.5px] font-semibold text-[#0e1217];
-}
 
 /* =========================================================================
    5. NUMBERS THAT TELL OUR STORY
    ========================================================================= */
-.home-numbers-layout {
-  display: grid;
-  grid-template-columns: 0.9fr 1.3fr;
-  align-items: center;
-  gap: 48px;
-}
 
-.home-numbers-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.home-stat-metric-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 
 /* Must match JSX: clamp(48px, 5.5vw, 92px) for the large display metric numbers */
 .metric-big-number {
@@ -874,12 +770,7 @@
   white-space: nowrap;
 }
 
-.home-stat-divider {
-  width: 1px;
-  height: 42px;
-  background: #cbd2da;
-  flex-shrink: 0;
-}
+
 
 /* =========================================================================
    6. WHAT OUR CLIENTS SAY (TESTIMONIALS)
@@ -959,67 +850,17 @@
   @apply bg-[#ea580c] w-[22px];
 }
 
-/* =========================================================================
-   7. CALL TO ACTION (CTA): READY TO TURN YOUR IDEAS INTO RESULTS?
-   ========================================================================= */
-.home-cta-section {
-  @apply overflow-hidden relative min-h-[480px] bg-[#11141c];
-}
 
-.home-cta-video-wrapper {
-  @apply absolute top-0 left-0 w-full h-full pointer-events-none z-[1] overflow-hidden;
-}
-
-.home-cta-video-element {
-  @apply w-full h-full object-cover opacity-35;
-}
-
-.home-cta-layout {
-  @apply flex flex-col md:flex-row items-start md:items-center justify-between w-full relative z-[2] gap-10;
-}
-
-.home-cta-content-col {
-  @apply flex flex-col items-start max-w-[680px];
-}
-
-.home-cta-heading {
-  @apply text-white mt-2;
-}
-
-.home-cta-subtext {
-  @apply text-base text-white/75 mt-3.5 mb-8;
-}
-
-.home-cta-actions-row {
-  @apply flex flex-col sm:flex-row items-center gap-4 flex-wrap w-full sm:w-auto;
-}
-
-.home-cta-primary-btn {
-  @apply inline-flex items-center justify-center gap-2.5 bg-white text-[#0e1217] py-3.5 px-[30px] rounded-full text-[13px] font-bold no-underline transition-all duration-200 ease-out shadow-[0_4px_14px_rgba(0,_0,_0,_0.25)] hover:bg-[#ea580c] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(234,_88,_12,_0.4)] w-full sm:w-auto;
-  font-family: 'Inter Tight', sans-serif;
-}
-
-.home-cta-secondary-btn {
-  @apply inline-flex items-center justify-center gap-2.5 bg-transparent text-white py-[13px] px-7 rounded-full border border-white/25 text-[13px] font-bold no-underline transition-all duration-200 ease-out hover:bg-white/12 hover:border-white hover:-translate-y-0.5 w-full sm:w-auto;
-  font-family: 'Inter Tight', sans-serif;
-}
 
 /* =========================================================================
    RESPONSIVE DESIGN SYSTEM
    ========================================================================= */
 @media (max-width: 1200px) {
-  .home-services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 
-  .home-industries-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  
 
-  .home-numbers-layout {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+  
 
   .home-testimonials-layout {
     grid-template-columns: 1fr;
@@ -1039,48 +880,25 @@
     grid-template-columns: 1fr;
   }
 
-  .home-process-art-bg {
-    display: none;
-  }
+  
 
-  .home-process-flow-track {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+  
 
-  .step-connector-line {
-    display: none;
-  }
+  
 
-  .home-process-step-node {
-    align-items: flex-start;
-    text-align: left;
-    max-width: 100%;
-  }
+  
 
-  .home-industries-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 
-  .home-numbers-right {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+  
 
-  .home-stat-divider {
-    display: none;
-  }
+  
 
   .testimonials-grid-row {
     grid-template-columns: 1fr;
   }
 
-  .home-cta-layout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  
 }
 
 @media (max-width: 640px) {
@@ -1093,9 +911,7 @@
     gap: 20px;
   }
 
-  .home-services-grid {
-    grid-template-columns: 1fr;
-  }
+  
 
   .home-featured-left {
     padding: 32px 24px;
@@ -1105,17 +921,9 @@
     padding: 24px 16px;
   }
 
-  .home-cta-actions-row {
-    flex-direction: column;
-    width: 100%;
-  }
+  
 
-  .home-cta-primary-btn,
-  .home-cta-secondary-btn {
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
-  }
+  
 }
 
 /* =========================================================================

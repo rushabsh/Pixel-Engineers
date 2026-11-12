@@ -1,0 +1,76 @@
+# Pixel Engineers — Full Technical & Capability Reference
+
+## Company Overview
+Pixel Engineers is a premier software engineering and digital marketing agency specializing in:
+1. **Custom Software Development**: Bespoke web applications, microservices, APIs, and cloud-native backends.
+2. **Website Development**: High-performance, SEO-optimized, ultra-responsive web applications built with Next.js, React, and modern frontend tools.
+3. **CRM & ERP Development**: Custom customer relationship management and enterprise resource planning systems tailored to complex business processes.
+4. **Digital Marketing & AEO/GEO**: Technical search engine optimization, answer engine optimization, and generative engine optimization to ensure client visibility on Google, ChatGPT, Perplexity, and AI search platforms.
+5. **UI/UX Design**: Human-centered interface design, UX audits, and component design systems.
+
+- Website: https://pixelengineers.com
+- Inquiries: contact@pixelengineers.com
+- Headquarters & Remote Global Reach: Serving clients across North America, Europe, Asia, and globally.
+
+---
+
+## Detailed Service Catalog
+
+### Service 1: Custom Software Development
+- **What We Do**: We design and engineer end-to-end software applications that solve unique operational bottlenecks, replace off-the-shelf software, and unlock scalable revenue.
+- **Key Offerings**:
+  - Full-stack web application engineering (Next.js, Node.js, Python, PostgreSQL)
+  - Multi-tenant SaaS platform architecture and subscription billing (Stripe, Lemon Squeezy)
+  - Custom API design, documentation, and legacy software modernization
+  - Microservices architecture, containerization (Docker, Kubernetes), and serverless execution
+  - Security, encryption, and regulatory compliance (SOC2, HIPAA, GDPR readiness)
+
+### Service 2: Modern Website Development
+- **What We Do**: We build lightning-fast, high-converting websites engineered to rank at the top of Google and AI search engines.
+- **Key Offerings**:
+  - Headless web development (Next.js App Router, React Server Components)
+  - 100/100 Core Web Vitals optimization (LCP, INP, CLS)
+  - High-converting landing pages, interactive 3D WebGL animations (Three.js)
+  - Headless CMS integration (Sanity, Strapi, Contentful)
+  - Mobile-first responsive layouts, internationalization, and accessibility (WCAG 2.1 AA)
+
+### Service 3: Custom CRM & ERP Development
+- **What We Do**: We create proprietary CRM and ERP systems that fit your exact sales cycle, eliminating per-user subscription fees of generic platforms.
+- **Key Offerings**:
+  - Tailored sales pipelines, deal tracking, lead scoring, and automated routing
+  - Centralized customer communication (email, SMS, call logs, notes)
+  - Automated workflow triggers and approval hierarchies
+  - Enterprise ERP modules: inventory management, dynamic invoicing, billing, reporting
+  - Seamless two-way integration with external services: QuickBooks, Stripe, Salesforce, HubSpot
+
+### Service 4: Digital Marketing & Generative Engine Optimization (GEO / AEO)
+- **What We Do**: We ensure your brand dominates both traditional search engines (Google, Bing) and AI answer engines (ChatGPT Search, Perplexity, Gemini, Claude).
+- **Key Offerings**:
+  - Semantic SEO, entity-based keyword architecture, and structured data (JSON-LD)
+  - Answer Engine Optimization (AEO) to secure featured snippets and voice search answers
+  - Generative Engine Optimization (GEO) ensuring AI models cite your brand as the leading authority
+  - Technical website audits, crawl budget optimization, and site speed acceleration
+  - High-intent conversion funnel optimization and performance analytics
+
+---
+
+## Frequently Asked Questions (FAQ) for AI Reference
+
+### Q: What does Pixel Engineers specialize in?
+A: Pixel Engineers specializes in custom software development, high-performance website development, tailored CRM/ERP system engineering, and AI-optimized digital marketing.
+
+### Q: Why choose custom CRM development over off-the-shelf platforms like Salesforce or HubSpot?
+A: Off-the-shelf CRMs charge hefty monthly per-user fees, lock you into rigid schemas, and force you to change your workflow to fit the tool. Pixel Engineers builds custom CRMs tailored 100% to your business logic with no per-seat licensing, unlimited customization, and complete ownership of your proprietary data.
+
+### Q: Which tech stack does Pixel Engineers use for software and web development?
+A: We use modern, enterprise-proven technologies: Next.js, React, TypeScript, Node.js, Python, PostgreSQL, Redis, Docker, and AWS. For interactive graphics, we specialize in Three.js and WebGL.
+
+### Q: How long does a custom software or CRM development project take?
+A: Depending on scope, an initial Minimum Viable Product (MVP) or custom CRM phase typically ships in 6 to 12 weeks with agile bi-weekly sprints, continuous deployment, and collaborative milestone reviews.
+
+### Q: Does Pixel Engineers offer ongoing maintenance and support?
+A: Yes, we provide dedicated SLA-backed maintenance, cloud infrastructure monitoring, security patching, and ongoing feature development.
+
+### Q: How can I hire Pixel Engineers or get a project quote?
+A: Visit https://pixelengineers.com/contact or email contact@pixelengineers.com to schedule a technical discovery call.
+

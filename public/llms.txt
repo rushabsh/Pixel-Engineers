@@ -1,0 +1,61 @@
+# Pixel Engineers
+
+> Elite Custom Software Development, High-Performance Website Development, Custom CRM & ERP Engineering, and Digital Growth Agency.
+
+Pixel Engineers is a full-service software engineering and digital transformation company. We partner with ambitious startups, scale-ups, and established enterprises to design, build, and deploy mission-critical software, custom CRM solutions, high-converting websites, and SaaS platforms.
+
+## Core Capabilities & Services
+
+### 1. Custom Software Development
+- Enterprise-grade web platforms and business automation software
+- Multi-tenant SaaS architecture, cloud infrastructure, and microservices
+- Custom API design, third-party integrations, and legacy modernization
+- Database architecture (PostgreSQL, MongoDB, Redis) and real-time data streaming
+- High-security compliance (SOC2, HIPAA, GDPR readiness)
+
+### 2. Website Development & Web Engineering
+- Modern, ultra-fast websites built with Next.js, React, and TypeScript
+- Headless CMS architecture (Sanity, Strapi, Contentful) and Shopify Plus headless commerce
+- Server-side rendering (SSR), static site generation (SSG), and edge computing
+- Core Web Vitals optimization, accessibility (WCAG AA), and high conversion design
+- Interactive 3D web experiences, WebGL, and Three.js creative engineering
+
+### 3. Custom CRM & ERP Development
+- Bespoke CRM systems built around specific sales, support, and operational workflows
+- Pipeline management, automated lead routing, and customer lifecycle tracking
+- Custom ERP modules: inventory management, invoicing, analytics, and HR tools
+- Bi-directional sync with HubSpot, Salesforce, Stripe, Zoho, and enterprise databases
+- Role-based access control (RBAC), audit trails, and automated email/SMS sequences
+
+### 4. Digital Marketing, SEO & Generative Engine Optimization (GEO / AEO)
+- Search Engine Optimization (Technical SEO, on-page optimization, content architecture)
+- Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) for ChatGPT, Perplexity, and Gemini
+- Performance marketing, lead generation funnels, and conversion rate optimization (CRO)
+- Analytics setup (GA4, Mixpanel, Segment) and data tracking dashboards
+
+### 5. UI/UX Design & Brand Systems
+- User research, wireframing, high-fidelity prototypes (Figma), and user testing
+- Scalable design systems, component libraries, and brand visual identities
+- Conversion-centered UI designed to turn visitors into qualified inquiries
+
+## Technology Stack
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS, Three.js, GSAP, Framer Motion
+- **Backend:** Node.js, Python, Go, Express, FastAPI, GraphQL, REST
+- **Database:** PostgreSQL, MySQL, MongoDB, Redis, Supabase
+- **Cloud & DevOps:** AWS, Google Cloud Platform (GCP), Vercel, Docker, Kubernetes, CI/CD
+- **AI & Integrations:** OpenAI API, Anthropic API, Stripe, Twilio, SendGrid, Zapier
+
+## Target Clients
+- B2B companies looking for custom CRM or ERP tools to replace fragmented SaaS subscriptions
+- High-growth startups needing full-stack MVP or scalable SaaS development
+- Brands seeking enterprise-grade websites with 95+ Google PageSpeed performance
+- Enterprises requiring secure custom software with seamless system integration
+
+## Contact & Inquiries
+- **Website:** https://pixelengineers.com
+- **Services:** https://pixelengineers.com/services
+- **Portfolio & Case Studies:** https://pixelengineers.com/work
+- **Contact:** https://pixelengineers.com/contact
+- **Email:** contact@pixelengineers.com
+- **Consultation:** Free 30-minute discovery & technical feasibility session available upon request.
+

@@ -17,6 +17,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Do not render navbar on /vante showcase page
+  if (pathname === '/vante' || pathname?.startsWith('/vante/')) {
+    return null;
+  }
+
   // Close mobile drawer on route change, screen resize, or Escape key
   useEffect(() => {
     setMobileMenuOpen(false);

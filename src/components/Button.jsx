@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 /**
  * Dynamic Button Component
@@ -24,31 +24,31 @@ export default function Button({
   text,
   href,
   onClick,
-  type = 'button',
-  variant = 'primary',
-  size = 'md',
+  type = "button",
+  variant = "primary",
+  size = "md",
   showArrow = true,
   icon,
   fullWidth = false,
   disabled = false,
   loading = false,
-  className = '',
+  className = "",
   target,
   rel,
   ...props
 }) {
-  const labelText = text || (typeof children === 'string' ? children : null);
+  const labelText = text || (typeof children === "string" ? children : null);
 
   const buttonClasses = [
-    'dynamic-btn',
+    "dynamic-btn",
     `dynamic-btn--${variant}`,
     `dynamic-btn--${size}`,
-    fullWidth ? 'dynamic-btn--full' : '',
-    disabled || loading ? 'dynamic-btn--disabled' : '',
+    fullWidth ? "dynamic-btn--full" : "",
+    disabled || loading ? "dynamic-btn--disabled" : "",
     className,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   const arrowBadge = (
     <span className="dynamic-btn-circle" aria-hidden="true">

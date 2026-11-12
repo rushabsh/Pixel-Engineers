@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import CtaSection from "./CtaSection";
+import EnergyScrollSection from "./EnergyScrollSection";
 import "./home-sections.css";
 
 // 1. Innovative Company Logos
@@ -60,28 +61,82 @@ const trustedLogos = [
 // 2. Services Cards
 const homeServices = [
   {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    desc: "Data-driven strategies to increase visibility and generate leads.",
-    image: "/images/Faceted Gold-Trimmed Origami Sculpture.avif",
+    id: "software-dev",
+    step: "01 / 06",
+    subTag: "01 / 06 • CUSTOM ARCHITECTURE",
+    title: "Custom Software Development",
+    desc: "Bespoke enterprise software, microservices, and workflow automation built for reliability and scale.",
+    image: "/images/Glowing Voxel Cube Network.avif",
+    statLabel: "Enterprise Performance",
+    statValue: "99.99%",
+    statBadge: "Microservices Scale",
+    chartBars: [45, 65, 55, 85, 75, 100],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   },
   {
     id: "web-app",
-    title: "Web & App Development",
-    desc: "Custom websites and applications built for performance and scale.",
+    step: "02 / 06",
+    subTag: "02 / 06 • NEXT.JS & FULL-STACK",
+    title: "Website & Web App Development",
+    desc: "High-performance websites and full-stack web applications engineered for speed, SEO, and conversions.",
     image: "/images/Golden Neural Network Mesh.avif",
+    statLabel: "Core Web Vitals",
+    statValue: "99 / 100",
+    statBadge: "Lighthouse Speed",
+    chartBars: [60, 75, 80, 90, 95, 99],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  },
+  {
+    id: "crm-erp",
+    step: "03 / 06",
+    subTag: "03 / 06 • DATA & WORKFLOW CRM",
+    title: "Custom CRM & ERP Solutions",
+    desc: "Tailored CRM systems and business management software to centralize customer data and accelerate sales pipelines.",
+    image: "/images/Futuristic Black and Gold UI Showcase.avif",
+    statLabel: "Pipeline Acceleration",
+    statValue: "+4.8x",
+    statBadge: "Automated Pipeline",
+    chartBars: [35, 50, 68, 72, 88, 98],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  },
+  {
+    id: "digital-marketing",
+    step: "04 / 06",
+    subTag: "04 / 06 • AEO & SEARCH RANKING",
+    title: "Digital Marketing & AEO / SEO",
+    desc: "Data-driven SEO, Answer Engine Optimization (AEO), and performance marketing to dominate search and AI platforms.",
+    image: "/images/Faceted Gold-Trimmed Origami Sculpture.avif",
+    statLabel: "AI Engine Visibility",
+    statValue: "+380%",
+    statBadge: "ChatGPT & Search Rank",
+    chartBars: [40, 58, 70, 82, 92, 100],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   },
   {
     id: "branding",
-    title: "Branding & Creative Design",
-    desc: "Creative designs that make your brand stand out in a competitive market.",
+    step: "05 / 06",
+    subTag: "05 / 06 • DESIGN SYSTEM & UI",
+    title: "Branding & UI/UX Design",
+    desc: "Memorable brand identities and intuitive digital user experiences that turn visitors into loyal customers.",
     image: "/images/Marble Orb with Golden Shattered Lattice.avif",
+    statLabel: "User Retention Rate",
+    statValue: "+64%",
+    statBadge: "Conversion-Focused",
+    chartBars: [50, 62, 74, 80, 88, 96],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   },
   {
     id: "it-consulting",
-    title: "IT Consulting",
-    desc: "Strategic guidance and technology solutions to streamline your business.",
+    step: "06 / 06",
+    subTag: "06 / 06 • CLOUD & SECURITY",
+    title: "IT Consulting & Cloud Architecture",
+    desc: "Strategic technical guidance, secure cloud infrastructure, and system integrations for modern enterprises.",
     image: "/images/Luxury Mosaic Tech Globe.avif",
+    statLabel: "Global Edge Latency",
+    statValue: "0.12s",
+    statBadge: "AWS & SOC2 Certified",
+    chartBars: [88, 85, 92, 95, 98, 100],
+    chartMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   },
 ];
 
@@ -127,7 +182,16 @@ const industriesList = [
       {
         title: "Smart Solutions",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M12 22v-9" />
             <path d="M9 13a4.5 4.5 0 0 0-4.5-4.5c-.8 0-1.5.2-2.1.6 1.8 1.8 2.6 4.2 2.6 6.9" />
             <path d="M15 13a4.5 4.5 0 0 1 4.5-4.5c.8 0 1.5.2 2.1.6-1.8 1.8-2.6 4.2-2.6 6.9" />
@@ -137,7 +201,16 @@ const industriesList = [
       {
         title: "Operational Efficiency",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M18 20V10" />
             <path d="M12 20V4" />
             <path d="M6 20v-6" />
@@ -147,7 +220,16 @@ const industriesList = [
       {
         title: "Sustainable Growth",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="3" />
             <circle cx="19" cy="5" r="2" />
             <circle cx="5" cy="19" r="2" />
@@ -158,7 +240,16 @@ const industriesList = [
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22v-9" />
         <path d="M9 13a4.5 4.5 0 0 0-4.5-4.5c-.8 0-1.5.2-2.1.6 1.8 1.8 2.6 4.2 2.6 6.9" />
         <path d="M15 13a4.5 4.5 0 0 1 4.5-4.5c.8 0 1.5.2 2.1.6-1.8 1.8-2.6 4.2-2.6 6.9" />
@@ -176,7 +267,16 @@ const industriesList = [
       {
         title: "HIPAA Compliant",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
@@ -185,7 +285,16 @@ const industriesList = [
       {
         title: "Patient Care",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
         ),
@@ -193,14 +302,32 @@ const industriesList = [
       {
         title: "Telehealth Sync",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
           </svg>
         ),
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
       </svg>
     ),
@@ -216,7 +343,16 @@ const industriesList = [
       {
         title: "Adaptive Learning",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
             <path d="M6 12v5c3 3 9 3 12 0v-5" />
           </svg>
@@ -225,7 +361,16 @@ const industriesList = [
       {
         title: "Student Portals",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
           </svg>
@@ -234,7 +379,16 @@ const industriesList = [
       {
         title: "Scalable LMS",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect width="18" height="18" x="3" y="3" rx="2" />
             <path d="M7 7h10" />
             <path d="M7 12h10" />
@@ -244,7 +398,16 @@ const industriesList = [
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
         <path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
@@ -261,7 +424,16 @@ const industriesList = [
       {
         title: "Virtual 3D Tours",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
@@ -270,7 +442,16 @@ const industriesList = [
       {
         title: "Lead Acquisition",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
@@ -279,7 +460,16 @@ const industriesList = [
       {
         title: "MLS & CRM Sync",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" x2="12" y1="15" y2="3" />
@@ -288,7 +478,16 @@ const industriesList = [
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
@@ -305,7 +504,16 @@ const industriesList = [
       {
         title: "Frictionless Cart",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
             <path d="M3 6h18" />
             <path d="M16 10a4 4 0 0 1-8 0" />
@@ -315,7 +523,16 @@ const industriesList = [
       {
         title: "Omnichannel Sync",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect width="20" height="14" x="2" y="5" rx="2" />
             <line x1="2" x2="22" y1="10" y2="10" />
           </svg>
@@ -324,7 +541,16 @@ const industriesList = [
       {
         title: "Conversion Engine",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
             <polyline points="17 6 23 6 23 12" />
           </svg>
@@ -332,7 +558,16 @@ const industriesList = [
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
         <path d="M3 6h18" />
         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -350,7 +585,16 @@ const industriesList = [
       {
         title: "Industrial IoT",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
           </svg>
         ),
@@ -358,7 +602,16 @@ const industriesList = [
       {
         title: "Smart Automation",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="3" />
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
           </svg>
@@ -367,14 +620,32 @@ const industriesList = [
       {
         title: "Predictive Analytics",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M2 12h5l3 7 4-14 3 7h5" />
           </svg>
         ),
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
       </svg>
     ),
@@ -390,7 +661,16 @@ const industriesList = [
       {
         title: "Connected Fleets",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C1.4 11.2 1 12 1 13v3c0 .6.4 1 1 1h2" />
             <circle cx="7" cy="17" r="2" />
             <circle cx="17" cy="17" r="2" />
@@ -400,7 +680,16 @@ const industriesList = [
       {
         title: "Dealership CRM",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
             <polyline points="16 11 18 13 22 9" />
@@ -410,7 +699,16 @@ const industriesList = [
       {
         title: "Instant Booking",
         icon: (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
             <line x1="16" x2="16" y1="2" y2="6" />
             <line x1="8" x2="8" y1="2" y2="6" />
@@ -420,7 +718,16 @@ const industriesList = [
       },
     ],
     tabIcon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C1.4 11.2 1 12 1 13v3c0 .6.4 1 1 1h2" />
         <circle cx="7" cy="17" r="2" />
         <circle cx="17" cy="17" r="2" />
@@ -450,36 +757,80 @@ const testimonials = [
 export default function HomeSections() {
   const [activeTestimonialDot, setActiveTestimonialDot] = useState(0);
   const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+
+  useEffect(() => {
+    const observers = [];
+    homeServices.forEach((_, index) => {
+      const el = document.getElementById(`service-card-${index}`);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveServiceIndex(index);
+            }
+          });
+        },
+        { rootMargin: "-20% 0px -40% 0px", threshold: 0.2 },
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, []);
+
+  const handleSelectService = (index) => {
+    setActiveServiceIndex(index);
+    const targetEl = document.getElementById(`service-card-${index}`);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   const handlePrevIndustry = () => {
     setActiveIndustryIndex((prev) =>
-      prev === 0 ? industriesList.length - 1 : prev - 1
+      prev === 0 ? industriesList.length - 1 : prev - 1,
     );
   };
 
   const handleNextIndustry = () => {
     setActiveIndustryIndex((prev) =>
-      prev === industriesList.length - 1 ? 0 : prev + 1
+      prev === industriesList.length - 1 ? 0 : prev + 1,
     );
   };
 
-  const currentIndustry = industriesList[activeIndustryIndex] || industriesList[0];
+  const currentIndustry =
+    industriesList[activeIndustryIndex] || industriesList[0];
 
   return (
-    <div className="home-sections-root relative z-30 bg-[#eaedef] text-[#0e1217] w-full overflow-x-hidden shadow-[0_-30px_60px_rgba(0,0,0,0.15)] font-['Inter_Tight',sans-serif]">
+    <div className="home-sections-root relative z-30 bg-[#eaedef] text-[#0e1217] w-full overflow-x-clip shadow-[0_-30px_60px_rgba(0,0,0,0.15)] font-['Inter_Tight',sans-serif]">
       {/* =========================================================================
           0. TRUSTED BY INNOVATIVE COMPANIES (LOGO MARQUEE STRIP)
           ========================================================================= */}
-      <section className="home-strip-section w-full bg-white border-y border-black/6 py-8 md:py-8.5 px-5 sm:px-8 md:px-16" id="trusted-by">
+      <section
+        className="home-strip-section w-full bg-white border-y border-black/6 py-8 md:py-8.5 px-5 sm:px-8 md:px-16"
+        id="trusted-by"
+      >
         <div className="home-container w-full max-w-360 mx-auto relative z-2">
           <p className="home-strip-tag font-['IBM_Plex_Mono',monospace] text-[11.5px] font-bold tracking-[0.14em] text-slate-400 mb-5 uppercase">
             TRUSTED BY INNOVATIVE COMPANIES
           </p>
           <div className="home-strip-logos-row flex items-center justify-between flex-wrap gap-7 max-sm:justify-center max-sm:gap-5">
             {trustedLogos.map((item) => (
-              <div key={item.name} className="home-strip-logo-item flex items-center gap-2.5 text-slate-800 opacity-85 transition-all duration-200 ease-out hover:opacity-100 hover:-translate-y-0.5">
-                <span className="home-logo-svg flex items-center">{item.icon}</span>
-                <span className="home-logo-name font-['Helvetica_Now_Var',sans-serif] text-base font-bold tracking-[-0.01em]">{item.name}</span>
+              <div
+                key={item.name}
+                className="home-strip-logo-item flex items-center gap-2.5 text-slate-800 opacity-85 transition-all duration-200 ease-out hover:opacity-100 hover:-translate-y-0.5"
+              >
+                <span className="home-logo-svg flex items-center">
+                  {item.icon}
+                </span>
+                <span className="home-logo-name font-['Helvetica_Now_Var',sans-serif] text-base font-bold tracking-[-0.01em]">
+                  {item.name}
+                </span>
               </div>
             ))}
           </div>
@@ -489,552 +840,282 @@ export default function HomeSections() {
       {/* =========================================================================
           1. OUR SERVICES: DIGITAL SOLUTIONS BUILT AROUND YOUR GOALS
           ========================================================================= */}
+
       <section
-        className="home-showcase-section w-full max-w-full relative flex items-center justify-center py-16 md:py-20 px-6 sm:px-10 md:px-16 border-t border-black/5 overflow-hidden"
+        className="home-showcase-section relative flex w-full max-w-full items-center justify-center border-t border-black/[0.05] px-5 py-16 sm:px-8 md:px-14 md:py-24"
         id="services"
       >
-        <div className="home-container w-full max-w-360 mx-auto relative z-2">
-          {/* HEADER */}
+        <div className="home-container relative z-10 mx-auto w-full max-w-[1440px]">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+            {/* =====================================
+          LEFT COLUMN: INTRO + SERVICE NAVIGATION
+      ====================================== */}
 
-          <div
-            className="
-          home-section-header
-          w-full
-          flex
-          flex-col
-          md:flex-row
-          md:items-end
-          justify-between
-          gap-8
-          md:gap-10
-          lg:gap-14
-          mb-12 
-          sm:mb-14
-          md:mb-16
-          lg:mb-18
-        "
-          >
+            <div className="flex flex-col pt-1 lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
+              {/* Section Label */}
+              <div className="mb-8 inline-flex items-center gap-2.5 self-start rounded-full border border-slate-200/80 bg-white/80 px-3.5 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.025)]">
+                <span className="h-2 w-2 rounded-full bg-[#ea580c]" />
 
-            {/* LEFT */}
-            <div
-              className="
-            home-header-left
-            w-full
-            max-w-170
-          "
-            >
-
-              {/* INDEX */}
-              <div
-                className="
-              home-index-tag
-              inline-flex
-              items-center
-              gap-2.5
-              font-['IBM_Plex_Mono',monospace]
-              text-[13px]
-              font-semibold
-              tracking-[0.14em]
-              text-slate-500
-              mb-4
-              uppercase
-            "
-              >
-                001 / 007
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-slate-700">
+                  001 / 006 • Digital Solutions
+                </span>
               </div>
 
-
-              {/* HEADING */}
-              <h2
-                className="
-              home-display-heading
-              font-['Helvetica_Now_Var','Inter_Tight',sans-serif]
-              text-[clamp(30px,3.1vw,42px)]
-              font-extrabold
-              leading-[1.08]
-              tracking-tight
-              text-[#0e1217]
-              uppercase
-              m-0
-            "
-              >
-                Digital Solutions <br />
-
-                Built Around{" "}
-
-                <span
-                  className="
-                home-heading-muted
-                text-[#828894]
-                font-extrabold
-              "
-                >
+              {/* Heading */}
+              <h2 className="mb-6 max-w-[570px] text-[clamp(35px,3.4vw,49px)] font-bold uppercase leading-[1.04] tracking-[-0.055em] text-[#10151c]">
+                Digital Solutions
+                <br />
+                Built Around
+                <br />
+                <span className="font-semibold text-[#718096]">
                   Your Goals.
                 </span>
               </h2>
 
-            </div>
-
-
-            {/* RIGHT */}
-            <div
-              className="
-            home-header-right
-            w-full
-            max-w-155
-            flex
-            flex-col
-            md:flex-row
-            md:items-end
-            gap-5
-            lg:gap-8
-          "
-            >
-
-              {/* DESCRIPTION */}
-              <p
-                className="
-              home-lead-desc
-              w-full
-              font-['Inter_Tight',sans-serif]
-              text-[15px]
-              leading-[1.65]
-              text-[#525866]
-              m-0
-              max-w-135
-            "
-              >
-                From digital marketing to custom software development, we
-                provide end-to-end solutions to help businesses grow in the
-                digital world.
+              {/* Description */}
+              <p className="mb-9 max-w-[440px] text-[15px] leading-[1.8] text-[#586477] sm:text-[16px]">
+                From custom software and website development to proprietary CRM
+                systems and data-driven digital marketing, we engineer scalable
+                solutions that drive measurable business growth.
               </p>
 
+              {/* Service Timeline */}
+              <div className="relative mb-8 flex flex-col gap-1 border-l border-slate-200 pl-5">
+                {homeServices.map((service, idx) => {
+                  const isActive = activeServiceIndex === idx;
 
-              {/* BUTTON */}
-              <div className="shrink-0">
+                  return (
+                    <button
+                      key={service.id}
+                      type="button"
+                      onClick={() => handleSelectService(idx)}
+                      aria-current={isActive ? "true" : undefined}
+                      className={`group relative block w-full cursor-pointer rounded-xl px-4 py-3.5 text-left transition-all duration-300 ${
+                        isActive
+                          ? "bg-white shadow-[0_5px_22px_rgba(15,23,42,0.055)]"
+                          : "bg-transparent hover:bg-white/65"
+                      }`}
+                    >
+                      {/* Active Indicator */}
+                      <span
+                        className={`absolute -left-[21px] top-1/2 h-6 w-[3px] -translate-y-1/2 rounded-full transition-all duration-300 ${
+                          isActive
+                            ? "bg-[#ea580c] shadow-[0_0_10px_rgba(234,88,12,0.25)]"
+                            : "bg-transparent"
+                        }`}
+                      />
 
-                <Button
-                  href="/services"
-                  size="md"
-                >
-                  Explore Services
-                </Button>
+                      {/* Step Number */}
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span
+                          className={`font-['IBM_Plex_Mono',monospace] text-[10px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 ${
+                            isActive
+                              ? "text-[#ea580c]"
+                              : "text-slate-400 group-hover:text-slate-600"
+                          }`}
+                        >
+                          {service.step}
+                        </span>
 
+                        <span
+                          className={`text-base transition-all duration-300 ${
+                            isActive
+                              ? "translate-x-0 text-[#ea580c]"
+                              : "-translate-x-1 text-slate-300 group-hover:translate-x-0 group-hover:text-slate-700"
+                          }`}
+                        >
+                          ↗
+                        </span>
+                      </div>
+
+                      {/* Service Title */}
+                      <div className="flex items-center justify-between gap-3">
+                        <span
+                          className={`text-[14px] tracking-tight transition-colors duration-300 sm:text-[15px] ${
+                            isActive
+                              ? "font-bold text-[#11151b]"
+                              : "font-medium text-slate-600 group-hover:text-slate-950"
+                          }`}
+                        >
+                          {service.title}
+                        </span>
+
+                        {isActive && (
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ea580c]" />
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
 
+              {/* Explore Services */}
+              <div className="self-start">
+                <Button href="/services" size="md">
+                  Explore Services
+                </Button>
+              </div>
             </div>
 
-          </div>
+            {/* =====================================
+          RIGHT COLUMN: SERVICE VISUAL CARDS
+      ====================================== */}
 
-
-          {/* ===================================================== */}
-          {/* SERVICES */}
-          {/* ===================================================== */}
-
-          <div className="relative w-full">
-
-            {/* TOP BORDER */}
-            <div className="w-full h-px bg-black/10" />
-
-
-            {homeServices.map((service, index) => (
-
-              <a
-                key={service.id}
-                href="/services"
-                className="
-              group
-              relative
-              block
-              w-full
-              no-underline
-              border-b
-              border-black/10
-            "
-              >
-
-                <div
-                  className="
-                relative
-                grid
-                grid-cols-12
-                items-center
-                w-full
-
-                min-h-27
-                sm:min-h-28
-                md:min-h-32
-                lg:min-h-34
-
-                px-3
-                sm:px-4
-                md:px-6
-                lg:px-8
-                xl:px-10
-
-                py-6
-                sm:py-7
-                md:py-8
-
-                pr-3
-                sm:pr-4
-                md:pr-6
-                lg:pr-8
-                xl:pr-10
-
-                overflow-hidden
-              "
+            <div className="flex flex-col gap-14 sm:gap-16 lg:col-span-7 lg:gap-20">
+              {homeServices.map((service, index) => (
+                <article
+                  key={service.id}
+                  id={`service-card-${index}`}
+                  className="group flex scroll-mt-28 flex-col gap-5"
                 >
-
-                  {/* ================================================= */}
-                  {/* NUMBER */}
-                  {/* ================================================= */}
-
-                  <div
-                    className="
-                  col-span-2
-                  md:col-span-1
-                  self-start
-                  pt-1
-                  md:pt-2
-                "
-                  >
-
-                    <span
-                      className="
-                    inline-block
-                    font-['IBM_Plex_Mono',monospace]
-                    text-[11px]
-                    md:text-[12px]
-                    font-semibold
-                    tracking-[0.12em]
-                    text-[#9aa0a8]
-                    transition-all
-                    duration-300
-                    group-hover:text-[#ea580c]
-                    group-hover:-translate-y-0.5
-                  "
-                    >
-                      0{index + 1}
-                    </span>
-
-                  </div>
-
-
-                  {/* ================================================= */}
-                  {/* TITLE */}
-                  {/* ================================================= */}
-
-                  <div
-                    className="
-                  col-span-8
-                  md:col-span-5
-                  lg:col-span-5
-                  min-w-0
-                  pr-3
-                  sm:pr-5
-                  md:pr-6
-                "
-                  >
-
-                    <h3
-                      className="
-                    font-['Helvetica_Now_Var','Inter_Tight',sans-serif]
-                    text-[19px]
-                    font-bold
-                    leading-tight
-                    tracking-tight
-                    text-[#0e1217]
-                    m-0
-                    transition-all
-                    duration-400
-                    ease-[cubic-bezier(0.16,1,0.3,1)]
-                    group-hover:translate-x-1
-                    group-hover:text-[#ea580c]
-                  "
-                    >
-                      {service.title}
-                    </h3>
-
-
-                    {/* MOBILE DESCRIPTION */}
-                    <p
-                      className="
-                    md:hidden
-                    font-['Inter_Tight',sans-serif]
-                    text-sm
-                    leading-[1.6]
-                    text-[#525866]
-                    m-0
-                    mt-2
-                    max-w-105
-                  "
-                    >
-                      {service.desc}
-                    </p>
-
-                  </div>
-
-
-                  {/* ================================================= */}
-                  {/* DESKTOP DESCRIPTION */}
-                  {/* ================================================= */}
-
-                  <div
-                    className="
-                  hidden
-                  md:block
-                  md:col-span-5
-                  lg:col-span-4
-                  min-w-0
-                  pr-8
-                  lg:pr-24
-                "
-                  >
-
-                    <p
-                      className="
-                    font-['Inter_Tight',sans-serif]
-                    text-sm
-                    leading-[1.65]
-                    text-[#7a8089]
-                    m-0
-                    max-w-105
-                    transition-all
-                    duration-400
-                    ease-out
-                    group-hover:text-[#525866]
-                    group-hover:translate-x-1
-                  "
-                    >
-                      {service.desc}
-                    </p>
-
-                  </div>
-
-
-                  {/* ================================================= */}
-                  {/* FLOATING IMAGE */}
-                  {/* ================================================= */}
-
-                  <div
-                    className="
-                  hidden
-                  lg:flex
-                  absolute
-                  right-20
-                  xl:right-28
-                  2xl:right-32
-                  top-1/2
-                  -translate-y-1/2
-
-                  w-20
-                  h-20
-                  xl:w-24
-                  xl:h-24
-
-                  items-center
-                  justify-center
-
-                  pointer-events-none
-
-                  opacity-0
-                  scale-75
-                  rotate-6
-
-                  transition-all
-                  duration-500
-                  ease-[cubic-bezier(0.16,1,0.3,1)]
-
-                  group-hover:opacity-100
-                  group-hover:scale-100
-                  group-hover:rotate-0
-                "
-                  >
-
+                  {/* IMAGE CARD */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[20px] border border-black/[0.06] bg-slate-900 shadow-[0_15px_45px_rgba(15,23,42,0.09)] sm:aspect-[16/10] sm:rounded-[26px]">
+                    {/* Background Image */}
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="
-                    max-w-full
-                    max-h-full
-                    object-contain
-                    drop-shadow-[0_16px_25px_rgba(0,0,0,0.10)]
-                  "
+                      loading={index < 2 ? "eager" : "lazy"}
+                      className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                     />
 
+                    {/* Image Overlay */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/[0.08]" />
+
+                    {/* Bottom Image Information */}
+                    <div className="absolute bottom-5 left-5 z-10 flex items-center gap-3 sm:bottom-7 sm:left-7">
+                      <span className="font-mono text-[10px] font-semibold tracking-[0.15em] text-white/85">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <span className="h-px w-7 bg-white/60" />
+
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/80">
+                        {service.subTag}
+                      </span>
+                    </div>
+
+                    {/* =====================================
+                  FLOATING STATISTICS WIDGET
+              ====================================== */}
+
+                    <div className="pointer-events-none absolute right-4 top-4 w-[195px] rounded-2xl border border-white/20 bg-[#171717]/55 p-4 text-white shadow-[0_15px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-transform duration-300 group-hover:-translate-y-1 sm:right-6 sm:top-6 sm:w-[230px] sm:p-5">
+                      {/* Metric Label */}
+                      <span className="block font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/65 sm:text-[10px]">
+                        {service.statLabel}
+                      </span>
+
+                      {/* Metric Value */}
+                      <div className="my-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        {service.statValue}
+                      </div>
+
+                      {/* Mini Chart */}
+                      <div className="mt-3 border-t border-white/15 pt-3">
+                        <div className="flex h-10 items-end justify-between gap-2 px-1 sm:h-12">
+                          {service.chartBars.map((height, bIdx) => (
+                            <div
+                              key={bIdx}
+                              className="flex h-full flex-1 items-end justify-center"
+                            >
+                              <div
+                                className={`w-2 rounded-t-full transition-all duration-500 sm:w-2.5 ${
+                                  bIdx === service.chartBars.length - 1
+                                    ? "bg-[#ea580c] shadow-[0_0_10px_rgba(234,88,12,0.4)]"
+                                    : "bg-white/45"
+                                }`}
+                                style={{
+                                  height: `${Math.max(height, 18)}%`,
+                                  opacity:
+                                    bIdx === service.chartBars.length - 1
+                                      ? 1
+                                      : 0.5 + bIdx * 0.08,
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Chart Labels */}
+                        <div className="mt-2 flex items-center justify-between font-mono text-[8px] text-white/55">
+                          {service.chartMonths.map((month, mIdx) => (
+                            <span key={mIdx}>{month}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Status */}
+                      <div className="mt-3 flex items-center justify-between border-t border-white/15 pt-3">
+                        <div className="flex min-w-0 items-center gap-2 text-[10px] font-medium text-white/85 sm:text-[11px]">
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+
+                          <span className="max-w-[125px] truncate">
+                            {service.statBadge}
+                          </span>
+                        </div>
+
+                        <span className="ml-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 py-1 font-mono text-[8px] font-bold uppercase tracking-wider text-emerald-300">
+                          Active
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
+                  {/* =====================================
+                SERVICE DESCRIPTION FOOTER
+            ====================================== */}
 
-                  {/* ================================================= */}
-                  {/* ARROW */}
-                  {/* ================================================= */}
+                  <div className="flex flex-col justify-between gap-5 px-1 pt-1 sm:flex-row sm:items-center">
+                    {/* Description */}
+                    <div className="max-w-xl">
+                      <div className="mb-2 flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#ea580c]" />
 
-                  <div
-                    className="
-                  col-span-2
-                  md:col-span-1
-                  flex
-                  justify-end
-                "
-                  >
+                        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600">
+                          {service.subTag}
+                        </span>
+                      </div>
 
-                    <span
-                      className="
-                    w-9
-                    h-9
-                    shrink-0
-                    rounded-full
-                    border
-                    border-black/10
-                    bg-white
-                    inline-flex
-                    items-center
-                    justify-center
-                    text-[#0e1217]
+                      <p className="m-0 text-[14px] leading-[1.8] text-[#596477] sm:text-[15px]">
+                        {service.desc}
+                      </p>
+                    </div>
 
-                    transition-all
-                    duration-300
-                    ease-out
-
-                    group-hover:border-[#ea580c]
-                    group-hover:bg-[#ea580c]
-                    group-hover:text-white
-                    group-hover:rotate-[-45deg]
-                  "
+                    {/* View Details */}
+                    <a
+                      href="/services"
+                      className="group/btn inline-flex shrink-0 items-center gap-3 self-start rounded-full border border-slate-200 bg-white px-5 py-2.5 text-[12px] font-semibold tracking-tight text-slate-800 shadow-[0_2px_8px_rgba(0,0,0,0.025)] transition-all duration-300 hover:border-[#ea580c] hover:bg-[#ea580c] hover:text-white hover:shadow-[0_5px_15px_rgba(234,88,12,0.15)] sm:self-center"
                     >
+                      <span>View Details</span>
 
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line
-                          x1="5"
-                          y1="12"
-                          x2="19"
-                          y2="12"
-                        />
-
-                        <polyline
-                          points="12 5 19 12 12 19"
-                        />
-                      </svg>
-
-                    </span>
-
+                      <span className="text-sm transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5">
+                        ↗
+                      </span>
+                    </a>
                   </div>
 
-
-                  {/* ================================================= */}
-                  {/* HOVER ACCENT */}
-                  {/* ================================================= */}
-
-                  <span
-                    className="
-                  absolute
-                  left-3
-                  sm:left-4
-                  md:left-6
-                  lg:left-8
-                  xl:left-10
-
-                  right-3
-                  sm:right-4
-                  md:right-6
-                  lg:right-8
-                  xl:right-10
-
-                  bottom-0
-
-                  h-[2px]
-
-                  bg-[#ea580c]
-
-                  origin-left
-                  scale-x-0
-
-                  transition-transform
-                  duration-500
-                  ease-[cubic-bezier(0.16,1,0.3,1)]
-
-                  group-hover:scale-x-100
-                "
-                  />
-
-                </div>
-
-              </a>
-
-            ))}
-
-
-            {/* BOTTOM BORDER */}
-            <div className="w-full h-px bg-black/10" />
-
+                  {/* Separator */}
+                  {index !== homeServices.length - 1 && (
+                    <div className="mt-5 h-px w-full bg-gradient-to-r from-slate-200 via-slate-200/60 to-transparent" />
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
-
-
-          {/* ===================================================== */}
-          {/* FOOTER META */}
-          {/* ===================================================== */}
-
-          <div
-            className="
-          flex
-          flex-col
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          gap-3
-          px-3
-          sm:px-4
-          md:px-6
-          lg:px-8
-          xl:px-10
-          pt-5
-        "
-          >
-
-            <span
-              className="
-            font-['IBM_Plex_Mono',monospace]
-            text-[11px]
-            tracking-[0.12em]
-            uppercase
-            text-slate-400
-          "
-            >
-              Our Capabilities
-            </span>
-
-
-            <span
-              className="
-            font-['IBM_Plex_Mono',monospace]
-            text-[11px]
-            tracking-[0.12em]
-            uppercase
-            text-slate-400
-          "
-            >
-              {String(homeServices.length).padStart(2, "0")} Services
-            </span>
-
-          </div>
-
         </div>
       </section>
 
       {/* =========================================================================
+          OVERLAPPING CARDS: AI ENERGY PLANNING
+          ========================================================================= */}
+      <EnergyScrollSection />
+
+      {/* =========================================================================
           2. FEATURED WORK: IDEAS TRANSFORMED INTO REAL IMPACT
           ========================================================================= */}
-      <section className="home-showcase-section w-full max-w-full relative flex items-center justify-center py-16 md:py-20 px-6 sm:px-10 md:px-16 border-t border-black/5" id="featured-work">
+      <section
+        className="home-showcase-section w-full max-w-full relative flex items-center justify-center py-16 md:py-20 px-6 sm:px-10 md:px-16 border-t border-black/5"
+        id="featured-work"
+      >
         <div className="home-container w-full max-w-360 mx-auto relative z-2">
           <div className="home-section-header flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-10 mb-9 md:mb-12 w-full">
             <div className="home-header-left max-w-170">
@@ -1043,7 +1124,10 @@ export default function HomeSections() {
               </div>
               <h2 className="home-display-heading font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(30px,3.1vw,42px)] font-extrabold leading-[1.08] tracking-tight text-[#0e1217] uppercase m-0">
                 Ideas Transformed <br />
-                Into <span className="home-heading-muted text-[#828894] font-extrabold">Real Impact.</span>
+                Into{" "}
+                <span className="home-heading-muted text-[#828894] font-extrabold">
+                  Real Impact.
+                </span>
               </h2>
             </div>
             <div className="home-header-right flex flex-col md:flex-row md:items-end gap-4 md:gap-8 max-w-155">
@@ -1289,7 +1373,9 @@ export default function HomeSections() {
                       <span className="home-transform-step-dot"></span>
 
                       <div className="home-transform-step-content">
-                        <span className="home-transform-step-number">{step.num}</span>
+                        <span className="home-transform-step-number">
+                          {step.num}
+                        </span>
 
                         <h3>{step.title}</h3>
 
@@ -1326,7 +1412,6 @@ export default function HomeSections() {
         <div className="home-container w-full max-w-360 mx-auto relative z-2">
           {/* HEADER */}
           <div className="home-section-header flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-10 mb-12 md:mb-16">
-
             <div className="home-header-left max-w-170">
               <div className="home-index-tag inline-flex items-center gap-3 font-['IBM_Plex_Mono',monospace] text-[13px] font-semibold tracking-[0.14em] text-slate-500 mb-4 md:mb-4.5 uppercase">
                 <span>004 / 007</span>
@@ -1355,7 +1440,6 @@ export default function HomeSections() {
             </div>
 
             <div className="home-header-right flex flex-col md:flex-row md:items-end gap-4 md:gap-8 max-w-160">
-
               <p
                 className="
               home-lead-desc
@@ -1372,7 +1456,6 @@ export default function HomeSections() {
               </p>
 
               <div className="home-slider-nav-arrows flex items-center gap-2.5 shrink-0">
-
                 <button
                   type="button"
                   onClick={handlePrevIndustry}
@@ -1446,7 +1529,6 @@ export default function HomeSections() {
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
-
               </div>
             </div>
           </div>
@@ -1465,9 +1547,7 @@ export default function HomeSections() {
                     className={`home-industry-tab-btn ${isActive ? "active" : ""}`}
                   >
                     {/* Number */}
-                    <span className="home-industry-tab-num">
-                      {ind.num}
-                    </span>
+                    <span className="home-industry-tab-num">{ind.num}</span>
 
                     {/* Tab Icon */}
                     <span className="home-industry-tab-icon">
@@ -1475,9 +1555,7 @@ export default function HomeSections() {
                     </span>
 
                     {/* Name */}
-                    <span className="home-industry-tab-name">
-                      {ind.name}
-                    </span>
+                    <span className="home-industry-tab-name">{ind.name}</span>
 
                     {/* Active Arrow Circle Badge */}
                     {isActive && (
@@ -1505,16 +1583,12 @@ export default function HomeSections() {
             <div className="home-industry-featured-card">
               {/* TOP RIGHT TAG & CORNER BRACKET */}
               <div className="home-industry-card-tag-wrap">
-                <span className="home-industry-card-tag">
-                  INDUSTRIES / 07
-                </span>
+                <span className="home-industry-card-tag">INDUSTRIES / 07</span>
                 <div className="home-industry-corner-bracket" />
               </div>
 
               {/* GIANT BACKGROUND WATERMARK "07" */}
-              <div className="home-industry-watermark">
-                07
-              </div>
+              <div className="home-industry-watermark">07</div>
 
               {/* CARD GRID */}
               <div className="home-industry-card-body">
@@ -1531,9 +1605,7 @@ export default function HomeSections() {
                   </h3>
 
                   {/* Description */}
-                  <p className="home-industry-desc">
-                    {currentIndustry.desc}
-                  </p>
+                  <p className="home-industry-desc">{currentIndustry.desc}</p>
 
                   {/* Horizontal Accent Line */}
                   <div className="home-industry-divider" />
@@ -1547,9 +1619,7 @@ export default function HomeSections() {
                         </div>
                         <div className="home-industry-feat-text">
                           {feat.title.split(" ").map((word, wIdx) => (
-                            <span key={wIdx}>
-                              {word}
-                            </span>
+                            <span key={wIdx}>{word}</span>
                           ))}
                         </div>
                       </div>
@@ -1557,10 +1627,7 @@ export default function HomeSections() {
                   </div>
 
                   {/* Explore Button */}
-                  <a
-                    href="/services"
-                    className="home-industry-cta-btn"
-                  >
+                  <a href="/services" className="home-industry-cta-btn">
                     <span>Explore Industry</span>
                     <span className="home-industry-cta-badge">
                       <svg
@@ -1591,7 +1658,6 @@ export default function HomeSections() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -1612,7 +1678,9 @@ export default function HomeSections() {
             <div className="home-numbers-heading-wrap max-w-212.5">
               <h2 className="home-display-heading font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(30px,3.1vw,42px)] font-extrabold leading-[1.08] tracking-tight text-[#0e1217] uppercase m-0">
                 Built on Experience. <br />
-                <span className="home-heading-muted text-[#828894] font-extrabold">Driven by Results.</span>
+                <span className="home-heading-muted text-[#828894] font-extrabold">
+                  Driven by Results.
+                </span>
               </h2>
 
               <p className="home-numbers-intro max-w-117.5 mt-6 md:mt-8 text-sm leading-[1.7] text-[#0e1217]/55">
@@ -1626,53 +1694,85 @@ export default function HomeSections() {
           <div className="home-numbers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <div className="home-number-item group relative min-h-55 lg:min-h-77.5 p-6 lg:p-[35px_35px_30px_0] border-b sm:border-b-0 border-r-0 sm:border-r border-black/15 transition-all duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2">
               <div className="home-number-top flex items-center justify-between mb-12 lg:mb-16">
-                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">01</span>
-                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">
+                  01
+                </span>
+                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  ↗
+                </span>
               </div>
 
-              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">150+</h3>
+              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                150+
+              </h3>
 
               <div className="home-number-bottom absolute left-0 bottom-6 lg:bottom-7.5">
-                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">Projects Delivered</span>
+                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">
+                  Projects Delivered
+                </span>
               </div>
             </div>
 
             <div className="home-number-item group relative min-h-55 lg:min-h-77.5 p-6 lg:p-[35px_35px_30px] border-b sm:border-b-0 border-r-0 lg:border-r border-black/15 transition-all duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2">
               <div className="home-number-top flex items-center justify-between mb-12 lg:mb-16">
-                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">02</span>
-                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">
+                  02
+                </span>
+                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  ↗
+                </span>
               </div>
 
-              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">50+</h3>
+              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                50+
+              </h3>
 
               <div className="home-number-bottom absolute left-6 lg:left-8.75 bottom-6 lg:bottom-7.5">
-                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">Global Clients</span>
+                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">
+                  Global Clients
+                </span>
               </div>
             </div>
 
             <div className="home-number-item group relative min-h-55 lg:min-h-77.5 p-6 lg:p-[35px_35px_30px] border-b sm:border-b-0 border-r-0 sm:border-r border-black/15 transition-all duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2">
               <div className="home-number-top flex items-center justify-between mb-12 lg:mb-16">
-                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">03</span>
-                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">
+                  03
+                </span>
+                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  ↗
+                </span>
               </div>
 
-              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">98%</h3>
+              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                98%
+              </h3>
 
               <div className="home-number-bottom absolute left-6 lg:left-8.75 bottom-6 lg:bottom-7.5">
-                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">Client Satisfaction</span>
+                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">
+                  Client Satisfaction
+                </span>
               </div>
             </div>
 
             <div className="home-number-item group relative min-h-55 lg:min-h-77.5 p-6 lg:p-[35px_35px_30px] transition-all duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2">
               <div className="home-number-top flex items-center justify-between mb-12 lg:mb-16">
-                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">04</span>
-                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                <span className="home-number-index text-[11px] tracking-[0.12em] opacity-45 font-mono">
+                  04
+                </span>
+                <span className="home-number-arrow text-lg opacity-35 transition-all duration-350 ease-out group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  ↗
+                </span>
               </div>
 
-              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">10+</h3>
+              <h3 className="metric-big-number font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(48px,5.5vw,92px)] font-extrabold text-[#0e1217] leading-[0.85] tracking-[-0.07em] m-0 transition-transform duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                10+
+              </h3>
 
               <div className="home-number-bottom absolute left-6 lg:left-8.75 bottom-6 lg:bottom-7.5">
-                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">Industries Served</span>
+                <span className="metric-caption font-['Inter_Tight',sans-serif] text-xs text-[#0e1217]/55 leading-normal m-0 font-medium whitespace-nowrap">
+                  Industries Served
+                </span>
               </div>
             </div>
           </div>
@@ -1682,7 +1782,10 @@ export default function HomeSections() {
       {/* =========================================================================
           6. WHAT OUR CLIENTS SAY (TESTIMONIALS)
           ========================================================================= */}
-      <section className="home-showcase-section w-full max-w-full relative flex items-center justify-center py-16 md:py-20 px-6 sm:px-10 md:px-16 border-t border-black/5" id="testimonials">
+      <section
+        className="home-showcase-section w-full max-w-full relative flex items-center justify-center py-16 md:py-20 px-6 sm:px-10 md:px-16 border-t border-black/5"
+        id="testimonials"
+      >
         <div className="home-container w-full max-w-360 mx-auto relative z-2">
           <div className="home-section-header flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-10 mb-9 md:mb-12 w-full">
             <div className="home-header-left max-w-170">
@@ -1691,7 +1794,9 @@ export default function HomeSections() {
               </div>
               <h2 className="home-display-heading font-['Helvetica_Now_Var','Inter_Tight',sans-serif] text-[clamp(30px,3.1vw,42px)] font-extrabold leading-[1.08] tracking-tight text-[#0e1217] uppercase m-0">
                 Trusted by Businesses <br />
-                <span className="home-heading-muted text-[#828894] font-extrabold">Worldwide.</span>
+                <span className="home-heading-muted text-[#828894] font-extrabold">
+                  Worldwide.
+                </span>
               </h2>
             </div>
             <div className="home-header-right flex flex-col md:flex-row md:items-end gap-4 md:gap-8 max-w-155">
@@ -1753,9 +1858,16 @@ export default function HomeSections() {
             <div className="testimonials-cards-col flex flex-col gap-7">
               <div className="testimonials-grid-row grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {testimonials.map((item, idx) => (
-                  <div key={idx} className="home-testimonial-card group bg-white border border-black/8 rounded-[20px] p-7 md:p-8 shadow-[0_10px_28px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#ea580c]/35 hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]">
-                    <span className="testimonial-quote-mark font-['Helvetica_Now_Var',serif] text-4xl text-[#ea580c] leading-none mb-2">“</span>
-                    <p className="testimonial-quote-text font-['Inter_Tight',sans-serif] text-[15px] leading-[1.65] text-[#525866] mb-6">{item.quote}</p>
+                  <div
+                    key={idx}
+                    className="home-testimonial-card group bg-white border border-black/8 rounded-[20px] p-7 md:p-8 shadow-[0_10px_28px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#ea580c]/35 hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+                  >
+                    <span className="testimonial-quote-mark font-['Helvetica_Now_Var',serif] text-4xl text-[#ea580c] leading-none mb-2">
+                      “
+                    </span>
+                    <p className="testimonial-quote-text font-['Inter_Tight',sans-serif] text-[15px] leading-[1.65] text-[#525866] mb-6">
+                      {item.quote}
+                    </p>
                     <div className="testimonial-author-row flex items-center gap-3.5">
                       <div className="testimonial-avatar-wrap w-11 h-11 rounded-full overflow-hidden bg-slate-200 shrink-0">
                         <img
@@ -1765,8 +1877,12 @@ export default function HomeSections() {
                         />
                       </div>
                       <div className="testimonial-author-meta flex flex-col gap-0.5">
-                        <h4 className="author-name font-['Helvetica_Now_Var',sans-serif] text-sm font-bold text-[#0e1217] m-0">{item.name}</h4>
-                        <p className="author-role text-xs text-slate-500 m-0">{item.role}</p>
+                        <h4 className="author-name font-['Helvetica_Now_Var',sans-serif] text-sm font-bold text-[#0e1217] m-0">
+                          {item.name}
+                        </h4>
+                        <p className="author-role text-xs text-slate-500 m-0">
+                          {item.role}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1780,10 +1896,11 @@ export default function HomeSections() {
                     key={dot}
                     type="button"
                     onClick={() => setActiveTestimonialDot(dot)}
-                    className={`testimonial-dot h-2 rounded-full border-none cursor-pointer transition-all duration-200 ease-out ${activeTestimonialDot === dot
-                      ? "active bg-[#ea580c] w-5.5"
-                      : "bg-slate-300 w-2 hover:bg-slate-400"
-                      }`}
+                    className={`testimonial-dot h-2 rounded-full border-none cursor-pointer transition-all duration-200 ease-out ${
+                      activeTestimonialDot === dot
+                        ? "active bg-[#ea580c] w-5.5"
+                        : "bg-slate-300 w-2 hover:bg-slate-400"
+                    }`}
                     aria-label={`Go to slide ${dot + 1}`}
                   />
                 ))}
